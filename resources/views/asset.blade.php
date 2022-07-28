@@ -5,7 +5,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-sm-6">
-            <h3>Data Assets</h3>
+            <h3>Data Asset Letter C</h3>
           </div>
         </div>
       </div>
@@ -20,10 +20,10 @@
                 {{-- <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalfat" data-whatever="@mdo">Tambah Data</button> --}}
               <div class="table-responsive">
                 <table class="display" id="example-style-1">
-                  <thead>
+                  <thead class="bg-success text-bold">
                     <tr>
-                      <th>Nomor</th>
-                      <th>Nama Pemilih</th>
+                      <th>Nomor Buku C</th>
+                      <th>Nama Pemilik</th>
                       <th>Keterangan</th>
                     </tr>
                   </thead>

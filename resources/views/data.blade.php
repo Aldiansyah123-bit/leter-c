@@ -6,7 +6,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-sm-6">
-            <h3>Data Pemilik Asset</h3>
+            <h3>Data Pemilik Letter C</h3>
           </div>
         </div>
       </div>
@@ -19,13 +19,20 @@
           <div class="card">
               <div class="card-body">
                 <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalfat">Tambah Data</button>
+                @if (session('message'))
+                    <div class="alert alert-danger dark alert-dismissible fade show" role="alert">{{ session('message') }}
+                        <button class="btn-close" type="button" data-bs-dismiss="alert" aria-label="Close"></button>
+                    </div>
+                @endif
               <div class="table-responsive">
                 <table class="display" id="example-style-1">
-                  <thead>
+                  <thead class="text-white bg-dark">
                     <tr>
-                      <th>Nomor</th>
+                      <th>Nomor Buku C</th>
                       <th>Nama Pemilik</th>
-                      <th>Keterangan</th>
+                      <th>Dusun</th>
+                      <th>Desa</th>
+                      <th>Kabupaten/Kota</th>
                       <th>Aksi</th>
                     </tr>
                   </thead>
@@ -34,11 +41,13 @@
                     <tr>
                         <td>{{ $item->number }}</td>
                         <td>{{ $item->nama }}</td>
-                        <td>{{ $item->keterangan }}</td>
+                        <td>{{ $item->dusun }}</td>
+                        <td>{{ $item->desa }}</td>
+                        <td>{{ $item->kab_kota }}</td>
                         <td class="text-center">
-                            {{-- <a href="" class="text-warning" data-bs-toggle="modal" data-bs-target="#Print{{ $item->id }}">
+                            <a href="" class="text-warning" data-bs-toggle="modal" data-bs-target="#Detail{{ $item->id }}">
                                 <i data-feather="printer"></i>
-                            </a> --}}
+                            </a>
                             <a href="" class="text-info" data-bs-toggle="modal" data-bs-target="#Update{{ $item->id }}">
                                 <i data-feather="edit"></i>
                             </a>
@@ -71,7 +80,7 @@
             @csrf
             <div class="row g-3">
                 <div class="mb-3">
-                    <label class="col-form-label" for="recipient-name">Nomor</label>
+                    <label class="col-form-label" for="recipient-name">Nomor Buku C</label>
                     <input class="form-control" type="number" name="number" placeholder="Nomor">
                 </div>
                 <div class="mb-3">
@@ -79,13 +88,23 @@
                     <input class="form-control" type="text" name="nama" placeholder="Nama Pemilik">
                 </div>
                 <div class="mb-3">
-                    <label class="col-form-label" for="recipient-name">Upload Leter C</label>
-                    <input class="form-control" type="file" name="file" placeholder="Foto KTP">
+                    <label class="col-form-label" for="recipient-name">Upload Scan Letter C</label>
+                    <input class="form-control" type="file" name="file" placeholder="" accept="image/jpg,image/png,image/jpeg">
                 </div>
-                <div class="mb-3">
+                <label class="col-form-label" for="recipient-name">Alamat</label>
+                <div class="mb-3 col-md-6">
+                    <input class="form-control" type="text" name="dusun" placeholder="Dusun">
+                </div>
+                <div class="mb-3 col-md-6">
+                    <input class="form-control" type="text" name="desa" placeholder="Desa">
+                </div>
+                <div class="mb-3 col-md-12">
+                    <input class="form-control" type="text" name="kab_kota" placeholder="Kabupatan/Kota">
+                </div>
+                {{-- <div class="mb-3">
                     <label class="col-form-label" for="message-text">Keterangan</label>
-                    <textarea class="form-control" id="message-text" name="keterangan" placeholder="Sebeb & Tanggal Perubahan"></textarea>
-                </div>
+                    <textarea class="form-control" id="message-text" name="keterangan" placeholder=""></textarea>
+                </div> --}}
             </div>
                 <div class="modal-footer">
                   <button class="btn btn-secondary" type="button" data-bs-dismiss="modal">Kembali</button>

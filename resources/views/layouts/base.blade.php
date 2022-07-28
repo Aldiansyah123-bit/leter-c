@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="icon" href="{{ asset('template') }}/assets/images/favicon.png" type="image/x-icon">
     <link rel="shortcut icon" href="{{ asset('template') }}/assets/images/favicon.png" type="image/x-icon">
-    <title>Sistem Informasi</title>
+    <title>Aplikasi Letter C</title>
     <!-- Google font-->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="{{ asset('template') }}/css2.css?family=Montserrat:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
@@ -56,11 +56,11 @@
       <!-- page-wrapper Start       -->
       <div class="page-wrapper compact-wrapper" id="pageWrapper">
         <!-- Page Header Start-->
-        <div class="page-main-header">
+        <div class="page-main-header bg-warning text-bold">
           <div class="main-header-right row m-0">
             <div class="main-header-left">
-              <div class="sidebar-main-title"><a href="index.html" class="sidebar-main-title"><h5>LETTER C</h5></a></div>
-              <div class="dark-logo-wrapper"><a href="index.html">LETTER C</a></div>
+              <div class="sidebar-main-title"><a href="" class="sidebar-main-title"><h5>LETTER C DESA</h5></a></div>
+              <div class="dark-logo-wrapper"><a href="">LETTER C DESA</a></div>
               <div class="toggle-sidebar"><i class="status_toggle middle" data-feather="align-center" id="sidebar-toggle"></i></div>
             </div>
             <div class="nav-right col pull-right right-menu p-0">
@@ -90,7 +90,7 @@
             <div class="sidebar-user text-center"><a class="setting-primary" href="javascript:void(0)"><i data-feather="settings"></i></a><img class="img-90 rounded-circle" src="{{ asset('template') }}/assets/images/dashboard/1.png" alt="">
               <div class="badge-bottom"><span class="badge badge-primary">New</span></div><a href="{{ route('dashboard') }}">
                 <h6 class="mt-3 f-14 f-w-600">{{ auth()->user()->name }}</h6></a>
-              <p class="mb-0 font-roboto">Human Resources Department</p>
+              <p class="mb-0 font-roboto">Selamat Datang di Aplikasi Letter C Desa</p>
 
             </div>
             <nav>
@@ -114,17 +114,17 @@
                     @if (auth()->user()->role !=2)
                         <li class="sidebar-main-title">
                             <div>
-                            <h6>Asset</h6>
+                            <h6>Masukkan Data</h6>
                             </div>
                         </li>
                         <li class="">
                             <a class="nav-link menu-title link-nav" href="{{ route('data.index') }}">
-                                <i data-feather="package"></i><span>Masukkan Data</span>
+                                <i data-feather="package"></i><span>Data Pemilik Letter C</span>
                             </a>
                         </li>
                         <li class="">
                             <a class="nav-link menu-title link-nav" href="{{ route('asset.index') }}">
-                                <i data-feather="layers"></i><span>Data Asset</span>
+                                <i data-feather="layers"></i><span>Detail Asset Letter C</span>
                             </a>
                         </li>
                     @endif
@@ -142,10 +142,10 @@
     <div class="container-fluid">
       <div class="row">
         <div class="col-md-6 footer-copyright">
-          <p class="mb-0">Copyright 2021-22 © viho All rights reserved.</p>
+          <p class="mb-0"></p>
         </div>
         <div class="col-md-6">
-          <p class="pull-right mb-0">Hand crafted & made with <i class="fa fa-heart font-secondary"></i></p>
+          <p class="pull-right mb-0"> <i class="fa fa-heart font-secondary"></i></p>
         </div>
       </div>
     </div>

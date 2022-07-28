@@ -10,8 +10,8 @@ class Asset extends Model
     use HasFactory;
 
     protected $fillable = [
-        'data_id','atas_nama','no_persil','kelas_desa','da','ha','R','S','metode','tahun',
-        'alasan','file','type'
+        'data_id','no_persil','kelas_desa','da','ha','R','S',
+        'alasan','type'
     ];
 
     public function data()

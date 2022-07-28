@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Data Asset Milik {{ $data->nama }}</title>
+    <title>Letter C Milik {{ $data->nama }}</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 </head>
 <body>
@@ -14,15 +14,23 @@
 			font-size: 9pt;
 		}
 	</style>
-    <center>
-        <h4 class="media-heading f-w-600">Data Asset Milik {{ $data->nama }}</h4>
-        <br><br><br>
-        <table class='table'>
-            <thead>
-                <th colspan="3"> <h4> Nama : {{ $data->nama }} </h4></th>
-                <th colspan="3" class="text-right"><h4> Nomor : {{ $data->number }} </h4></th>
-            </thead>
-        </table>
+    {{-- <center> --}}
+        <img src="{{ public_path('logo/logokabmadiun.png') }}" alt="" height="120" style="margin-bottom: -100%; margin-top: 2rem;">
+        <center>
+            <h4 class="media-heading f-w-600">PEMERINTAH KABUPATEN MADIUN</h4>
+            <h4 class="media-heading f-w-600">KECAMATAN BALEREJO</h4>
+            <h2 class="media-heading f-w-600">DESA KUWU</h2>
+            <p>Jln. Sandi No. 49</p>
+            <hr class="bold">
+        </center>
+        <center>
+        <h4 class="media-heading f-w-600">SALINAN LETTER-C DESA</h4>
+        </center>
+        <br>
+        <h5> Nama       : {{ $data->nama }} </h5>
+        <h5> Nomor      : {{ $data->number }} </h5>
+        {{--<h5> Keterangan : {{ $data->keterangan }} </h5>--}}
+        <br>
         <table class='table table-bordered'>
             <thead>
                 <tr>
@@ -36,7 +44,7 @@
                       <h6>Menurut Daftar Perincian</h6>
                     </th>
                     <th rowspan="3" class="text-center">
-                      <h6 class="mb-5">Klarifikasi</h6>
+                      <h6 class="mb-5">Klasifikasi</h6>
                     </th>
                     <th rowspan="3" class="text-center">
                         <h6 class="mb-5">Sebab & Tanggal Perubahan</h6>
@@ -96,6 +104,25 @@
                 @endforeach
             </tbody>
         </table>
-    </center>
+        <div class="text-right">
+            <!-- <center> -->
+                <br><br><br>
+                <p>
+                    Madiun, {{  \Carbon\Carbon::now()->isoFormat('D MMMM Y')}}
+                    <!-- Madiun, {{ date('j M Y', strtotime(\Carbon\Carbon::now())) }}  -->
+                </p>
+                <p>
+                    <!-- Mengetahui, -->
+                    Kepala Desa Kuwu
+               </p>
+                <br><br>
+                <p>
+                    <u>
+
+                        GUNADI
+                    </u>
+                </p>
+            <!-- </center> -->
+        </div>
 </body>
 </html>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Asset;
 use App\Models\Data;
+use Barryvdh\DomPDF\PDF as DomPDFPDF;
 // use Barryvdh\DomPDF\PDF;
 // use Barryvdh\DomPDF\Facade as PDF;
 use PDF;
@@ -37,5 +38,14 @@ class HomeController extends Controller
         // $pdf = PDF::loadView('print.asset',['data' => $data, 'asset' => $asset]);
         return $pdf->stream();
         // return $pdf->download('Asset-pdf');
+    }
+
+    public function print()
+    {
+        $data = Data::all();
+
+        $pdf = PDF::loadview('print.data', compact('data'));
+
+        return $pdf->stream();
     }
 }

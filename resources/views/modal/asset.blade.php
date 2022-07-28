@@ -13,11 +13,23 @@
                 <div class="mb-3">
                     <input class="form-control" type="text" name="id" value="{{ $data->id }}" hidden>
                     <label class="col-form-label" for="recipient-name">Nomor Persil</label>
-                    <input class="form-control" type="number" name="no_persil" placeholder="Nomor Persil" value="{{ $item->no_persil }}">
+                    <input class="form-control" type="text" name="no_persil" placeholder="Nomor Persil" value="{{ $item->no_persil }}">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label" for="recipient-name">Kelas Desa</label>
-                    <input class="form-control" type="text" name="kelas_desa" placeholder="Kelas Desa" value="{{ $item->kelas_desa }}">
+                    {{-- <input class="form-control" type="text" name="kelas_desa" placeholder="Kelas Desa"> --}}
+                    <select class="form-select digits" id="exampleFormControlSelect9" name="kelas_desa" value="{{$item->kelas_desa}}">
+                        <option>--- Select ---</option>
+                        <option value="Darat-I (Satu)">Darat-I (Satu)</option>
+                        <option value="Sawah-I (Satu)">Sawah-I (Satu)</option>
+                        <option value="Darat-II (Dua)">Darat-II (Dua) </option>
+                        <option value="Sawah-II (Dua)">Sawah-II (Dua)</option>
+                        <option value="Darat-III (Tiga)">Darat-III (Tiga)</option>
+                        <option value="Sawah-III (Tiga)">Sawah-III (Tiga)</option>
+                        <option value="Darat-IV (Empat)">Darat-IV (Empat)</option>
+                        <option value="Sawah-IV (Empat)">Sawah-IV (Empat)</option>
+  
+                    </select>
                 </div>
                 <label class="col-form-label" for="recipient-name">Luas Tanah</label>
                 <div class="mb-3 col-md-6">
@@ -33,18 +45,21 @@
                 <div class="mb-3 col-md-6">
                     <input class="form-control" type="number" name="S" placeholder="S" value="{{ $item->S }}">
                 </div>
-                <select class="form-select digits" id="exampleFormControlSelect9" name="type" value="{{ $item->type }}">
-                    <option>--- Select ---</option>
-                    <option value="Sawah">Sawah</option>
-                    <option value="Kering">Kering</option>
-                </select>
                 <div class="mb-3">
+                    <label class="col-form-label" for="recipient-name">Klasifikasi</label>
+                    <select class="form-select digits" id="exampleFormControlSelect9" name="type" value="{{ $item->type }}">
+                        <option>--- Select ---</option>
+                        <option value="Sawah">Sawah</option>
+                        <option value="Kering">Kering</option>
+                    </select>
+                </div>
+                {{-- <div class="mb-3">
                     <label class="col-form-label" for="recipient-name">Bukti Surat</label>
                     <input class="form-control" type="file" name="file" placeholder="Foto KTP">
-                </div>
+                </div> --}}
                 <div class="mb-3">
-                    <label class="col-form-label" for="message-text">Sebeb & Tanggal Perubahan</label>
-                    <textarea class="form-control" id="message-text" name="alasan" placeholder="Sebeb & Tanggal Perubahan">{{ $item->alasan }}</textarea>
+                    <label class="col-form-label" for="message-text">Sebab & Tanggal Perubahan</label>
+                    <textarea class="form-control" id="message-text" name="alasan" placeholder="Sebab & Tanggal Perubahan">{{ $item->alasan }}</textarea>
                 </div>
 
             </div>

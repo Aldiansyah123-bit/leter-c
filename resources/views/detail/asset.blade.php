@@ -6,7 +6,7 @@
       <div class="page-header">
         <div class="row">
           <div class="col-sm-6">
-            <h3>Detail Asset</h3>
+            <h3>Detail Asset Letter C</h3>
           </div>
           <div class="col-sm-6">
           </div>
@@ -19,17 +19,22 @@
             <div class="card">
               <div class="card-body">
                 <div>
-                  <div>
-                    <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalfat">Tambah Data</button>
+                    <div>
+                        <button class="btn btn-primary mb-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModalfat">Tambah Data</button>
+                        <div class="col-sm-12 text-center mt-3">
+                            <a href="{{ route('laporan',[$data->id]) }}" class="text-primary" target="_blank">
+                            <i data-feather="printer"></i>
+                            </a>
+                            <a href="{{ route('asset.index') }}" class="text-danger">
+                                <i data-feather="power"></i>
+                            </a>
+                        </div>
+                    </div>
                     <div class="col-sm-12 text-center mt-3">
-                        <a href="{{ route('laporan',[$data->id]) }}" class="text-primary" target="_blank">
-                          <i data-feather="printer"></i>
-                        </a>
-                        <a href="{{ route('asset.index') }}" class="text-danger">
-                            <i data-feather="power"></i>
+                        <a href="{{ route('dashboard') }}" class="text-info">
+                            <i data-feather="skip-back"></i>
                         </a>
                     </div>
-                  </div>
                   <!-- End InvoiceTop-->
                   <div class="row invo-profile">
                     <div class="col-xl-4">
@@ -53,47 +58,47 @@
                   <div>
                     <div class="table-responsive invoice-table" id="table">
                       <table class="table table-bordered table-striped">
-                        <thead>
+                        <thead class="bg-danger text-white">
                             <tr>
                                 <th class="item" rowspan="3">
-                                  <h6 class="p-2 mb-5 text-center">Nomor dan Huruf Bagian Persil</h6>
+                                  <h6 class="p-2 mb-5 text-center text-white">Nomor dan Huruf Bagian Persil</h6>
                                 </th>
                                 <th class="Hours" rowspan="3">
-                                    <h6 class="p-2 mb-5 text-center">Kelas Desa</h6>
+                                    <h6 class="p-2 mb-5 text-center text-white">Kelas Desa</h6>
                                   </th>
                                 <th class="Hours" colspan="4">
-                                  <h6 class="p-2 text-center">Menurut Daftar Perincian</h6>
+                                  <h6 class="p-2 text-center text-white">Menurut Daftar Perincian</h6>
                                 </th>
                                 <th class="Rate" rowspan="3">
-                                  <h6 class="p-2 mb-5 text-center">Klarifikasi</h6>
+                                  <h6 class="p-2 mb-5 text-center text-white">Klasifikasi</h6>
                                 </th>
                                 <th class="Rate" rowspan="3">
-                                    <h6 class="p-2 mb-5 text-center">Sebab & Tanggal Perubahan</h6>
+                                    <h6 class="p-2 mb-5 text-center text-white">Sebab & Tanggal Perubahan</h6>
                                 </th>
                                 <th class="Rate" rowspan="3">
-                                    <h6 class="p-2 mb-5 text-center"></h6>
+                                    <h6 class="p-2 mb-5 text-center text-white"></h6>
                                 </th>
                             </tr>
                             <tr>
                                 <th class="Hours" colspan="2">
-                                    <h6 class="p-2 text-center">Luas Tanah</h6>
+                                    <h6 class="p-2 text-center text-white">Luas Tanah</h6>
                                 </th>
                                 <th class="Hours" colspan="2">
-                                    <h6 class="p-2 text-center">Iuran</h6>
+                                    <h6 class="p-2 text-center text-white">Iuran</h6>
                                 </th>
                             </tr>
                             <tr>
                                 <th class="Hours">
-                                    <h6 class="p2 text-center">ha</h6>
+                                    <h6 class="p2 text-center text-white">ha</h6>
                                 </th>
                                 <th class="Hours">
-                                    <h6 class="p2 text-center">da</h6>
+                                    <h6 class="p2 text-center text-white">da</h6>
                                 </th>
                                 <th class="Hours">
-                                    <h6 class="p2 text-center">R</h6>
+                                    <h6 class="p2 text-center text-white">R</h6>
                                 </th>
                                 <th class="Hours">
-                                    <h6 class="p2 text-center">S</h6>
+                                    <h6 class="p2 text-center text-white">S</h6>
                                 </th>
                             </tr>
                         </thead>
@@ -124,14 +129,16 @@
                                 <td>
                                     <h6 class="itemtext digits text-center">{{ $item->alasan }}</h6>
                                 </td>
-                                <td>
-                                    <a href="" class="text-info" data-bs-toggle="modal" data-bs-target="#Update{{ $item->id }}">
-                                        <i data-feather="edit"></i>
-                                    </a>
-                                    <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#Delete{{ $item->id }}">
-                                        <i data-feather="delete"></i>
-                                    </a>
-                                </td>
+                                @if (auth()->user()->role !=2)
+                                    <td>
+                                        <a href="" class="text-info" data-bs-toggle="modal" data-bs-target="#Update{{ $item->id }}">
+                                            <i data-feather="edit"></i>
+                                        </a>
+                                        <a href="" class="text-danger" data-bs-toggle="modal" data-bs-target="#Delete{{ $item->id }}">
+                                            <i data-feather="delete"></i>
+                                        </a>
+                                    </td>
+                                @endif
                                 @include('modal.asset')
                             </tr>
                             @endforeach
@@ -166,11 +173,23 @@
                 <div class="mb-3">
                     <input class="form-control" type="text" name="id" value="{{ $data->id }}" hidden>
                     <label class="col-form-label" for="recipient-name">Nomor Persil</label>
-                    <input class="form-control" type="number" name="no_persil" placeholder="Nomor Persil">
+                    <input class="form-control" type="text" name="no_persil" placeholder="Nomor Persil">
                 </div>
                 <div class="mb-3">
                     <label class="col-form-label" for="recipient-name">Kelas Desa</label>
-                    <input class="form-control" type="text" name="kelas_desa" placeholder="Kelas Desa">
+                    {{-- <input class="form-control" type="text" name="kelas_desa" placeholder="Kelas Desa"> --}}
+                    <select class="form-select digits" id="exampleFormControlSelect9" name="kelas_desa">
+                        <option>--- Select ---</option>
+                        <option value="Darat-I (Satu)">Darat-I (Satu)</option>
+                        <option value="Sawah-I (Satu)">Sawah-I (Satu)</option>
+                        <option value="Darat-II (Dua)">Darat-II (Dua) </option>
+                        <option value="Sawah-II (Dua)">Sawah-II (Dua)</option>
+                        <option value="Darat-III (Tiga)">Darat-III (Tiga)</option>
+                        <option value="Sawah-III (Tiga)">Sawah-III (Tiga)</option>
+                        <option value="Darat-IV (Empat)">Darat-IV (Empat)</option>
+                        <option value="Sawah-IV (Empat)">Sawah-IV (Empat)</option>
+
+                    </select>
                 </div>
                 <label class="col-form-label" for="recipient-name">Luas Tanah</label>
                 <div class="mb-3 col-md-6">
@@ -186,18 +205,21 @@
                 <div class="mb-3 col-md-6">
                     <input class="form-control" type="number" name="S" placeholder="S">
                 </div>
-                <select class="form-select digits" id="exampleFormControlSelect9" name="type">
-                    <option>--- Select ---</option>
-                    <option value="Sawah">Sawah</option>
-                    <option value="Kering">Kering</option>
-                </select>
                 <div class="mb-3">
+                    <label class="col-form-label" for="recipient-name">Klasifikasi</label>
+                    <select class="form-select digits" id="exampleFormControlSelect9" name="type">
+                        <option>--- Select ---</option>
+                        <option value="Sawah">Sawah</option>
+                        <option value="Kering">Kering</option>
+                    </select>
+                </div>
+                {{-- <div class="mb-3">
                     <label class="col-form-label" for="recipient-name">Bukti Surat</label>
                     <input class="form-control" type="file" name="file" placeholder="Foto KTP">
-                </div>
+                </div> --}}
                 <div class="mb-3">
-                    <label class="col-form-label" for="message-text">Sebeb & Tanggal Perubahan</label>
-                    <textarea class="form-control" id="message-text" name="alasan" placeholder="Sebeb & Tanggal Perubahan"></textarea>
+                    <label class="col-form-label" for="message-text">Sebab & Tanggal Perubahan</label>
+                    <textarea class="form-control" id="message-text" name="alasan" placeholder=""></textarea>
                 </div>
 
             </div>

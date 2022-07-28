@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
 
+use function PHPUnit\Framework\returnSelf;
+
 class DataController extends Controller
 {
     /**
@@ -61,11 +63,18 @@ class DataController extends Controller
             $filefileSimpan =  null;
         }
 
+        $cek = Data::where('number', $request->number)->count();
+        if ($cek>0)
+        return redirect()->route('data.index')->with(['message' => 'Nomor C yang anda masukkan sudah ada'],500);
+
         $data = Data::create([
             'nama'      => $request->nama,
             'number'    => $request->number,
             'file'      => $filefileSimpan,
-            'keterangan'=> $request->keterangan
+            'keterangan'=> $request->keterangan,
+            'dusun'     => $request->dusun,
+            'desa'      => $request->desa,
+            'kab_kota'  => $request->kab_kota,
         ]);
 
         if ($data instanceof Model) {
@@ -133,11 +142,18 @@ class DataController extends Controller
             $filefileSimpan =  $dat->file;
         }
 
+        // $cek = Data::where('number', $request->number)->count();
+        // if ($cek>0)
+        // return redirect()->route('data.index')->with(['message' => 'Nomor C yang anda masukkan sudah ada'],500);
+
         Data::findOrFail($id)->update([
             'nama'      => $request->nama,
             'number'    => $request->number,
             'file'      => $filefileSimpan,
-            'keterangan'=> $request->keterangan
+            'keterangan'=> $request->keterangan,
+            'dusun'     => $request->dusun,
+            'desa'      => $request->desa,
+            'kab_kota'  => $request->kab_kota,
         ]);
 
         toastr()->success('Data Berhasil Di Update');

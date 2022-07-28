@@ -54,18 +54,18 @@ class AssetController extends Controller
             return response()->json($validator->errors(),400);
         }
 
-        if($request->hasFile('file')){
-            // ada file yang diupload
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('file')->getClientOriginalExtension();
-            $filefileSimpan = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('file')->move(public_path('file'),$filefileSimpan);
+        // if($request->hasFile('file')){
+        //     // ada file yang diupload
+        //     $filenameWithExt = $request->file('file')->getClientOriginalName();
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $extension = $request->file('file')->getClientOriginalExtension();
+        //     $filefileSimpan = $filename.'_'.time().'.'.$extension;
+        //     $path = $request->file('file')->move(public_path('file'),$filefileSimpan);
 
-        }else{
-            // tidak ada file yang diupload
-            $filefileSimpan =  null;
-        }
+        // }else{
+        //     // tidak ada file yang diupload
+        //     $filefileSimpan =  null;
+        // }
 
         $data = Asset::create([
             'data_id'   => $request->id,
@@ -76,11 +76,11 @@ class AssetController extends Controller
             'R'         => $request->R,
             'S'         => $request->S,
             'type'      => $request->type,
-            'metode'    => $request->metode,
-            'tahun'     => $request->tahun,
-            'atas_nama' => $request->atas_nama,
+            // 'metode'    => $request->metode,
+            // 'tahun'     => $request->tahun,
+            // 'atas_nama' => $request->atas_nama,
             'alasan'    => $request->alasan,
-            'file'      => $filefileSimpan
+            // 'file'      => $filefileSimpan
         ]);
 
         if ($data instanceof Model) {
@@ -147,18 +147,18 @@ class AssetController extends Controller
             return response()->json($validator->errors(),400);
         }
 
-        if($request->hasFile('file')){
-            // ada file yang diupload
-            $filenameWithExt = $request->file('file')->getClientOriginalName();
-            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
-            $extension = $request->file('file')->getClientOriginalExtension();
-            $filefileSimpan = $filename.'_'.time().'.'.$extension;
-            $path = $request->file('file')->move(public_path('file'),$filefileSimpan);
+        // if($request->hasFile('file')){
+        //     // ada file yang diupload
+        //     $filenameWithExt = $request->file('file')->getClientOriginalName();
+        //     $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+        //     $extension = $request->file('file')->getClientOriginalExtension();
+        //     $filefileSimpan = $filename.'_'.time().'.'.$extension;
+        //     $path = $request->file('file')->move(public_path('file'),$filefileSimpan);
 
-        }else{
-            // tidak ada file yang diupload
-            $filefileSimpan =  null;
-        }
+        // }else{
+        //     // tidak ada file yang diupload
+        //     $filefileSimpan =  null;
+        // }
 
         Asset::findOrFail($id)->update([
             'data_id'   => $request->id,
@@ -169,11 +169,11 @@ class AssetController extends Controller
             'R'         => $request->R,
             'S'         => $request->S,
             'type'      => $request->type,
-            'metode'    => $request->metode,
-            'tahun'     => $request->tahun,
-            'atas_nama' => $request->atas_nama,
+            // 'metode'    => $request->metode,
+            // 'tahun'     => $request->tahun,
+            // 'atas_nama' => $request->atas_nama,
             'alasan'    => $request->alasan,
-            'file'      => $filefileSimpan
+            // 'file'      => $filefileSimpan
         ]);
 
         toastr()->success('Data Berhasil Di Update');

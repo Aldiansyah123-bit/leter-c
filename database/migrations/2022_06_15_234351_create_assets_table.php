@@ -22,11 +22,7 @@ class CreateAssetsTable extends Migration
             $table->string('da',30);
             $table->string('R',30);
             $table->string('S',30);
-            $table->string('metode',50)->nullable();
-            $table->string('tahun',50)->nullable();
-            $table->string('atas_nama',50)->nullable();
             $table->text('alasan')->nullable();
-            $table->string('file')->nullable();
             $table->string('type');
             $table->timestamps();
 

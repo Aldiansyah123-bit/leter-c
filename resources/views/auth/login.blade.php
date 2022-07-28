@@ -18,7 +18,7 @@
                 <form class="theme-form login-form" method="POST" action="{{ route('login') }}">
                     @csrf
                   <h4>Login</h4>
-                  <h6>Welcome back! Log in to your account.</h6>
+                  <h6>Selamat Datang di Aplikasi Pengolahan Data Letter C</h6>
                   <div class="form-group">
                     <label>Email Address</label>
                     <div class="input-group"><span class="input-group-text"><i class="icon-email"></i></span>

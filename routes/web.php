@@ -25,5 +25,6 @@ Route::middleware(['auth'])->group(function(){
     Route::resource('data', DataController::class);
     Route::resource('asset', AssetController::class);
     Route::get('laporan/{id}',[HomeController::class, 'cetak'])->name('laporan');
+    Route::get('pemilik',[HomeController::class, 'print'])->name('pemilik');
 });
 require __DIR__.'/auth.php';
